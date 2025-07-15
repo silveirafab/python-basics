@@ -1,4 +1,4 @@
-# python-basics
+# python-basics-class
 
 ## About this project
 
