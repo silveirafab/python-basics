@@ -1,4 +1,4 @@
-# python-basics-yall
+# python-basics
 
 ## About this project
 
