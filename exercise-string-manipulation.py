@@ -27,16 +27,28 @@ string_length = long_village_name
 print(len(string_length))
 
 # 5
-my_path = "              /c/Users /instructor/ Downloads/Submit Relating the Nonrelational Assessment Download May 10, 2021 917 AM.         " 
-my_folder = my_path.strip() 
-print(my_folder)
+my_path = '              /c/Users/instructor/Downloads/Submit Relating the Nonrelational Assessment Download May 10, 2021 917 AM.         '
+my_folders = my_path.strip().split("//")
+print(my_folders)
 
 # 6
 composers = 'Beethoven,Ludwig von;Liszt,Franz;Mozart,Wolfgang;Copland,Aaron'
+composers = composers.replace('Mozart,Wolfgang', 'Wolfgang Mozart')
+print(composers)
+
 composers_split = composers.split(';')
+print(composers_split)
+
 third_composer = composers_split[2]
+print(third_composer)
+
 comma_position = third_composer.find(',')
-last_name, first_name = third_composer.split(',')
+print(comma_position)
+
+#Skip per Michael
+#last_name, first_name = third_composer.split(',')
+first_name = 'Wolfgang'
+last_name = 'Mozart'
 third_composer_name = f'{first_name} {last_name}'
 print(third_composer_name)
 
