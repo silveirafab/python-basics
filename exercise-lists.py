@@ -29,6 +29,7 @@ for items in device_list:
     count += 1
 
 # add or remove devices, 1 - add, 2 - remove, 3 - quit
+# using the pop()
 print('Would you like to add or remove any other devices?')
 new_device = input('Enter "1" for yes. Enter "2" to remove. Enter "3" to quit: ')
 if new_device == '1':
