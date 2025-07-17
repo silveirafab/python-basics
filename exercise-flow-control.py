@@ -25,7 +25,7 @@ print('Please type the option you would like below')
 inventory = ['Chips', 'Candy', 'Soda']
 remaining_funds = user_funds
 
-while remaining_funds > 0:
+while True:
     itempre = input('What option would you like: ')
     item = itempre.capitalize() 
     if item not in inventory:
@@ -40,37 +40,43 @@ while remaining_funds > 0:
             remaining_funds = remaining_funds - chips
             print(f'Enjoy your {item}, you have ${remaining_funds:.2f} left')
         else:
-            print(f'Not enough funds for {item}, you only have ${remaining_funds:.2f}.\n This item cost ${chips:.2f}')
+            print(f'Not enough funds for {item}, you have ${remaining_funds:.2f}.\n This item cost ${chips:.2f}')
             add_more = input('Would you like to insert more money? Y/N: ')
-            if add_more == 'y' or 'yes' or 'Yes' or 'YES':
+            if add_more.lower() in ('y' or 'yes'):
                 more_money = float(input('How much more would you like to add: '))
                 remaining_funds = remaining_funds + more_money
                 print(f'Your new balance is {remaining_funds:.2f}')
+
     elif item == 'Candy':
         if remaining_funds >= candy:
             remaining_funds = remaining_funds - candy
             print(f'Enjoy your {item}, you have ${remaining_funds:.2f} left')
         else:
-            print(f'Not enough funds for {item}, you only have ${remaining_funds:.2f}.\n This item cost ${candy:.2f}')
+            print(f'Not enough funds for {item}, you have ${remaining_funds:.2f}.\n This item cost ${candy:.2f}')
             add_more = input('Would you like to insert more money? Y/N: ')
-            if add_more == 'y' or 'yes' or 'Yes' or 'YES':
+            if add_more.lower() in ('y' or 'yes'):
                 more_money = float(input('How much more would you like to add: '))
                 remaining_funds = remaining_funds + more_money
                 print(f'Your new balance is {remaining_funds:.2f}')
+
     elif item == 'Soda':
         if remaining_funds >= soda:
             remaining_funds = remaining_funds - soda
             print(f'Enjoy your {item}, you have ${remaining_funds:.2f} left')
         else:
-            print(f'Not enough funds for {item}, you only have ${remaining_funds:.2f}.\n This item cost ${soda:.2f}')
+            print(f'Not enough funds for {item}, you have ${remaining_funds:.2f}.\n This item cost ${soda:.2f}')
             add_more = input('Would you like to insert more money? Y/N: ')
-            if add_more == 'y' or 'yes' or 'Yes' or 'YES':
+            if add_more.lower() in ('y' or 'yes'):
                 more_money = float(input('How much more would you like to add: '))
                 remaining_funds = remaining_funds + more_money
                 print(f'Your new balance is {remaining_funds:.2f}')
 
     go_again = input('Would you like to buy another item? Y/N: ')
-    if go_again == 'n' or 'N' or 'No' or 'no' or 'NO':
+    print(f'Here is the menu:')
+    print(f'Candy: ${candy:.2f}')
+    print(f'Soda: ${soda:.2f}')
+    print(f'Chips: ${chips:.2f}')
+    if go_again.lower() in ('n', 'no'):
         print(f'Transaction ended. You will be refunded ${remaining_funds:.2f}')
         print('Thank you for using the vending machine!')
         break
