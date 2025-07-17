@@ -67,7 +67,7 @@ while True:
             print(f'Enjoy your {item}, you have ${remaining_funds:.2f} left')
         else:
             print('!'*31)
-            print(f'Not enough funds for {item}, you have ${remaining_funds:.2f}.\n This item cost ${candy:.2f}')
+            print(f'Not enough funds for {item}, you have ${remaining_funds:.2f}.\nThis item cost ${candy:.2f}')
             print(' '*31)
             add_more = input('Would you like to insert more money? Y/N: ')
             if add_more.lower() in ('y' or 'yes'):
@@ -82,7 +82,7 @@ while True:
             print(f'Enjoy your {item}, you have ${remaining_funds:.2f} left')
         else:
             print('!'*31)
-            print(f'Not enough funds for {item}, you have ${remaining_funds:.2f}.\n This item cost ${soda:.2f}')
+            print(f'Not enough funds for {item}, you have ${remaining_funds:.2f}.\nThis item cost ${soda:.2f}')
             print(' '*31)
             add_more = input('Would you like to insert more money? Y/N: ')
             if add_more.lower() in ('y' or 'yes'):
@@ -106,4 +106,3 @@ while True:
         break
     else:
         continue
-    
