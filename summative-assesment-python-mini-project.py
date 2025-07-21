@@ -88,7 +88,7 @@ def print_summary(student_list):
 
 
 def save_to_file(student_list):
-     '''This function saves our data to a text file. It creats columns to organize it,
+     '''This function saves the data to a text file. It creats columns to organize it,
      and writes the data for name, score, and data'''
      with open('grades.txt', 'w') as f:
           f.write(f'Student Grade Report - Generated on: {datetime.now().strftime('%D %H:%M:%S')}\n')
@@ -104,7 +104,7 @@ def save_to_file(student_list):
 
 
 def main():
-     '''This is our main function. This puts all other functions together to run the program.
+     '''This is the main function. This puts all other functions together to run the program.
      It calls the welcome function, and loops allowing the user to add as many entries as they want.
      When user is done, it prints the data and saves it to a text file.'''
      welcome()
