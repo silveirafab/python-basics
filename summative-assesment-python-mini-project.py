@@ -1,10 +1,12 @@
 # Summative Assesment Python Mini Project
 # 1. Start/Welcome - greet user 
 # 2. Create function that identifies and returns letter grade
-# 3. Create function that prints student summary: name, score, and letter grade
+# 3. Create function that gets name, and num score and adds to list with grade
 # 4. Create a function that saves this information to a text file.
-# 5. Use loop to keep asking for more student info
-# 6. When user is done, offer a way to end program. 
+# 5. Create a function that prints this list
+# 6. Use loop to keep asking for more student info
+# 7. Create a function that adds this list to text file.
+# 8. When user is done, offer a way to end program. 
 
 from datetime import datetime
 def welcome():
