@@ -8,6 +8,9 @@
 
 
 def welcome():
+    '''the welcome function greets user, explains how to use program and what info user needs.
+    Upon pressing enter, user will begin the program.'''
+
     print('Welcome to the Student Grade Tracker!')
     print('My name is Cortana, I will be helping you today.')
     user_name = input('Please introduce yourself, what is your name? ')
@@ -19,38 +22,83 @@ def welcome():
 
 
 def get_letter_grade(grade):
+        '''This function determines what letter grade is given, depending on numerical score.
+        grade is passed into this function, it returns a letter depending on the value
+        of grade. '''
+
         if grade >= 90:
             return 'A'
-        elif grade in range(80, 90):
+        elif grade >= 80:
             return 'B'
-        elif grade in range(70,80):
+        elif grade >= 70:
             return 'C'
-        elif grade in range(60, 70):
+        elif grade >= 60:
             return 'D'
         else:
             return 'F'
 
-student_list = []
+student_list = [] # This creates an empty list named student_list. We store the info here. 
 def add_student_name_score():
-    name = input('Enter student name: ').title()
-    score_input = input('Enter score (0-100): ')
-    score = int(score_input)
+    ''' This function will ask user for name, score, and uses the get_letter_grade function
+    to determine grade. It adds to our empty list, turning it into a dictionary with these values.
+    Lastly, a confirmation is printd.'''
+    while True:
+        name = input('Enter student name: ').strip().title()
+        if name:
+             break
+        else:
+             print('Name cannot be blank. Please Try again')
+    while True:
+        score_input = input('Enter score (0-100): ').strip()
+        if score_input.isdigit():
+            score = round(float(score_input), 1)
+            if 0 <= score <= 100:
+                 break
+            else:
+                 print('Score invalid. Score must be between 0 and 100. Try again.')
+        else:
+             print('That\'s not a number. Score must be between 0-100. Try again')
     grade = get_letter_grade(score)
-    student_list.append((name, score, grade))
+    student_list.append({'name': name, 'score': score, 'grade': grade})
     print(f'Added: {name} with score {score} -> {grade}')
 
+
+
 def print_summary(student_list):
+     '''This function prints a summary with nice formatting lines of the students that
+     were added. Name, score and grade are printed. It loops thorugh student_list and prints every
+     entry. At the bottom it prints total students added.'''
      print('\nStudent Summary:')
+     print('-' * 35)
+     print(f'{"Name":<20}{"Score":<8}{"Grade":<5}')
+     print('-' * 35)
      for student in student_list:
-          print(f'{student[0]}: {student[1]} -> {student[2]}')
+          print(f'{student['name']:<20}{student['score']:<8.1f}{student['grade']:<5}')
+     print('-' * 35)
+     print(f'Total students: {len(student_list)}')
+
+
 
 def save_to_file(student_list):
+     '''This function saves our data to a text file. It creats columns to organize it,
+     and writes the data for name, score, and data'''
      with open('grades.txt', 'w') as f:
+          f.write('Student Grade Report\n')
+          f.write('-' * 40 + '\n')
+          f.write(f'{'Name':<20}{'Score':<8}{'Grade':<5}\n')
+          f.write('-' * 40 + '\n')
           for student in student_list:
-               f.write(f'{student[0]}: {student[1]} -> {student[2]}\n')
+               f.write(f'{student['name']:<20}: {student['score']:<8.1f} -> {student['grade']:<5}\n')
+          f.write('-' * 40 + '\n')
+          f.write(f'Total Students: {len(student_list)}\n')
      print('Student data saved to grades.txt')
 
+
+
 def main():
+     '''This is our main function. This puts all other functions together to run the program.
+     It calls the welcome function, and loops allowing the user to add as many entries as they want.
+     When user is done, it prints the data and saves it to a text file.'''
      welcome()
      while True:
           add_student_name_score()
