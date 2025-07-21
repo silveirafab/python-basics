@@ -6,7 +6,7 @@
 # 5. Use loop to keep asking for more student info
 # 6. When user is done, offer a way to end program. 
 
-
+from datetime import datetime
 def welcome():
     '''the welcome function greets user, explains how to use program and what info user needs.
     Upon pressing enter, user will begin the program.'''
@@ -55,7 +55,7 @@ def add_student_name_score():
              print('Name cannot be blank. Please Try again')
     while True:
         score_input = input('Enter score (0-100): ').strip()
-        if score_input.replace('.', '', 1).isdigit():
+        if score_input.replace('.', '', 1).isdigit(): # allow decimal point, be replacing it before input check
             score = round(float(score_input), 1)
             if 0 <= score <= 100:
                  break
@@ -65,7 +65,7 @@ def add_student_name_score():
              print('That\'s not a number. Score must be between 0-100. Try again')
     grade = get_letter_grade(score)
     student_list.append({'name': name, 'score': score, 'grade': grade})
-    print(f'Added: {name} with score {score} -> {grade}')
+    print(f'Added: {name:<20}{score:<8}{grade:<5}')
 
 
 
@@ -73,6 +73,7 @@ def print_summary(student_list):
      '''This function prints a summary with nice formatting lines of the students that
      were added. Name, score and grade are printed. It loops thorugh student_list and prints every
      entry. At the bottom it prints total students added.'''
+     student_list.sort(key=lambda x: x['score'])#lambda defines the key and x: assigns it
      print('\nStudent Summary:')
      print('-' * 35)
      print(f'{"Name":<20}{"Score":<8}{"Grade":<5}')
@@ -88,7 +89,7 @@ def save_to_file(student_list):
      '''This function saves our data to a text file. It creats columns to organize it,
      and writes the data for name, score, and data'''
      with open('grades.txt', 'w') as f:
-          f.write('Student Grade Report\n')
+          f.write(f'Student Grade Report - Generated on: {datetime.now().strftime('%D %H:%M:%S')}\n')
           f.write('-' * 40 + '\n')
           f.write(f'{'Name':<20}{'Score':<8}{'Grade':<5}\n')
           f.write('-' * 40 + '\n')
@@ -112,5 +113,6 @@ def main():
                break
      print_summary(student_list)
      save_to_file(student_list)
+     print('\nThank you for using the Student Grade Tracker! Goodbye.')
      
 main()

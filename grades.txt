@@ -1,8 +1,12 @@
-Student Grade Report
+Student Grade Report - Generated on: 07/21/25 15:15:56
 ----------------------------------------
 Name                Score   Grade
 ----------------------------------------
-Jane Doe            : 99.2     -> A    
-James               : 99.9     -> A    
+Willa               : 12.0     -> F    
+Me                  : 72.0     -> C    
+Jon                 : 77.0     -> C    
+Roxy                : 77.0     -> C    
+Mary                : 99.0     -> A    
+123                 : 100.0    -> A    
 ----------------------------------------
-Total Students: 2
+Total Students: 6
