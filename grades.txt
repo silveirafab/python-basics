@@ -1,9 +1,8 @@
-Student Grade Report\m----------------------------------------
+Student Grade Report
+----------------------------------------
 Name                Score   Grade
 ----------------------------------------
-Jane Doe            : 99.0     -> A    
-Yes                 : 50.0     -> F    
-John Smith          : 20.0     -> F    
-69                  : 69.0     -> D    
+Jane Doe            : 99.2     -> A    
+James               : 99.9     -> A    
 ----------------------------------------
-Total Students: 4
+Total Students: 2

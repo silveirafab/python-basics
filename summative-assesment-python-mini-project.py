@@ -12,32 +12,37 @@ def welcome():
     Upon pressing enter, user will begin the program.'''
 
     print('Welcome to the Student Grade Tracker!')
-    print('My name is Cortana, I will be helping you today.')
-    user_name = input('Please introduce yourself, what is your name? ')
-    print(f'Excellent, nice to meet you {user_name}')
-    print('To begin, please have the student names and their scores (0-100) ready.')
-    print('Once you have this information please press enter and we will begin.')
+    print('-' * 35)
+    print('My name is Cortana. I will be helping you today.')
+    user_name = input('Please introduce yourself, \nWhat is your name? ')
+    print(' ' * 35)
+    print(f'>>>Excellent! \nNice to meet you {user_name}.')
+    print(' ' * 35)
+    print('To begin, you will need student names and scores (0-100).')
+    print('Once you have this information we will begin.')
+    print('-' * 35)
     ready = input('Press ENTER when you are ready to start')
-    return user_name 
+    print('-' * 35)
 
 
-def get_letter_grade(grade):
+def get_letter_grade(num_score):
         '''This function determines what letter grade is given, depending on numerical score.
         grade is passed into this function, it returns a letter depending on the value
         of grade. '''
 
-        if grade >= 90:
+        if num_score >= 90:
             return 'A'
-        elif grade >= 80:
+        elif num_score >= 80:
             return 'B'
-        elif grade >= 70:
+        elif num_score >= 70:
             return 'C'
-        elif grade >= 60:
+        elif num_score >= 60:
             return 'D'
         else:
             return 'F'
 
 student_list = [] # This creates an empty list named student_list. We store the info here. 
+
 def add_student_name_score():
     ''' This function will ask user for name, score, and uses the get_letter_grade function
     to determine grade. It adds to our empty list, turning it into a dictionary with these values.
@@ -50,7 +55,7 @@ def add_student_name_score():
              print('Name cannot be blank. Please Try again')
     while True:
         score_input = input('Enter score (0-100): ').strip()
-        if score_input.isdigit():
+        if score_input.replace('.', '', 1).isdigit():
             score = round(float(score_input), 1)
             if 0 <= score <= 100:
                  break
@@ -102,7 +107,7 @@ def main():
      welcome()
      while True:
           add_student_name_score()
-          another = input('Add another student? (yes/no): ').lower()
+          another = input('>>> Add another student? (yes/no): ').lower()
           if another == 'no':
                break
      print_summary(student_list)
